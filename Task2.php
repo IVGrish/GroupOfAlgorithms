@@ -9,8 +9,8 @@ function birthdayCountdown(string $date): string
         echo 'Wrong date and time: ' . $e->getMessage();
         exit();
     }
-    if ($now->format("Y") > $birthdate->format("Y") &&
-        $now->format("d") == $birthdate->format("d"))
+    if ($now->format("Y")  >  $birthdate->format("Y") &&
+        $now->format("d") === $birthdate->format("d"))
     {
         $years = $birthdate->diff($now)->y;
         $birthdate->modify("+$years years");
@@ -21,14 +21,14 @@ function birthdayCountdown(string $date): string
         $birthdate->modify("+$years years +1 day");
     }
     elseif ($now->format("m")  >  $birthdate->format("m") &&
-              $now->format("Y") === $birthdate->format("Y"))
+            $now->format("Y") === $birthdate->format("Y"))
     {
         $years = $birthdate->diff($now)->y + 1;
         $birthdate->modify("+$years years +1 day");
     }
     elseif ($now->format("d")  >  $birthdate->format("d") &&
-              $now->format("m") === $birthdate->format("m") &&
-              $now->format("Y") === $birthdate->format("Y"))
+            $now->format("m") === $birthdate->format("m") &&
+            $now->format("Y") === $birthdate->format("Y"))
     {
         $years = $birthdate->diff($now)->y + 1;
         $birthdate->modify("+$years years +1 day");
